@@ -8,7 +8,7 @@ metadata:
     tier: db
     project: expense
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: mysql
@@ -17,19 +17,19 @@ spec:
   template:
     metadata:
       labels:
-      app: mysql
-      tier: db
-      project: expense    
+        app: mysql
+        tier: db
+        project: expense
     spec:
       containers:
-      - name: nginx
-        image: rajprudvin/mysql:v1
+      - name: mysql
+        image: joindevops/mysql:v1
 ---
-kind: service
+kind: Service
 apiVersion: v1
 metadata:
   name: mysql
-  nmaespace: expense
+  namespace: expense
 spec:
   selector:
     app: mysql
@@ -38,5 +38,5 @@ spec:
   ports:
   - name: mysql-port
     protocol: TCP
-    port: 3306 #service port
-    targetport: 3306 #container port    
+    port: 3306 # service port
+    targetPort: 3306 # container port
