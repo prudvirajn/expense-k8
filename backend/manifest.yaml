@@ -36,10 +36,10 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
-            # limits is greater than or equal to requests
-            limits:
-              cpu: 100m
-              memory: 128Mi
+          # limits is greater than or equal to requests
+          limits:
+            cpu: 100m
+            memory: 128Mi
         envFrom:
         - configMapRef:
             name: backend
@@ -72,4 +72,4 @@ spec:
    name: backend
  minReplicas: 1
  maxReplicas: 10
- targetCPUUtilizationPercentage: 15 # usually 75 in real environment    
+ targetCPUUtilizationPercentage: 15 # usually 75 in real environment
