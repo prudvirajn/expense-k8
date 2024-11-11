@@ -91,7 +91,7 @@ data:
         }
 
     }
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -137,7 +137,7 @@ spec:
           name: frontend
           items:
             - key: nginx.conf
-              path: nginx.conf    
+              path: nginx.conf
 ---
 kind: Service
 apiVersion: v1
@@ -168,4 +168,4 @@ spec:
    name: frontend
  minReplicas: 1
  maxReplicas: 10
- targetCPUUtilizationPercentage: 15 # usually 75 in real environment    
+ targetCPUUtilizationPercentage: 15 # usually 75 in real environment
